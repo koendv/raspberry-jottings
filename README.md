@@ -25,3 +25,12 @@
 	./configure --enable-sysfsgpio --enable-bcm2835gpio
 	make
 	make install
+	
+# orbunculum
+
+```
+git clone https://github.com/orbcode/orbuculum
+cd orbuculum
+apt-get install libelf-dev libiberty-dev  binutils-dev
+make 
+```	

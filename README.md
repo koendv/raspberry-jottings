@@ -1,4 +1,5 @@
 # Raspberry Jottings
+Notes how to compile on raspbian
 
 ## micropython
 	tar xvf ~/Downloads/micropython-1.12.tar.xz
@@ -34,3 +35,26 @@ cd orbuculum
 apt-get install libelf-dev libiberty-dev  binutils-dev
 make 
 ```	
+# bmtrace
+
+(from Black Magic Probe Book)
+
+```
+apt-get install libbsd-dev libglfw3-dev libusb-1.0.0-dev libgtk-3-dev git
+git clone https://github.com/compuphase/Black-Magic-Probe-Book
+cd Black-Magic-Probe-Book/source
+patch -p0 <<EOD
+--- bmscan.c.ORIG	2020-05-07 08:35:45.817172986 +0100
++++ bmscan.c	2020-05-07 08:36:00.636893982 +0100
+@@ -27,6 +27,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include "bmp-scan.h"
++#define stricmp(s1,s2)    strcasecmp((s1),(s2))
+ 
+ 
+ #if !defined sizearray
+EOD
+
+GLFW_LIBNAME=glfw make -f Makefile.linux
+```

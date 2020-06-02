@@ -1,6 +1,5 @@
 # Raspberry Jottings
-Notes how to compile and install on raspbian
-
+Notes how to compile and install on raspberry pi
 ## micropython
 	tar xvf ~/Downloads/micropython-1.12.tar.xz
 	cd micropython-1.12/
@@ -27,7 +26,7 @@ Notes how to compile and install on raspbian
 	make
 	make install
 	
-# orbunculum
+## orbunculum
 
 ```
 git clone https://github.com/orbcode/orbuculum
@@ -35,7 +34,8 @@ cd orbuculum
 apt-get install libelf-dev libiberty-dev  binutils-dev
 make 
 ```	
-# bmtrace
+
+## bmtrace
 
 (from Black Magic Probe Book)
 
@@ -46,25 +46,25 @@ cd Black-Magic-Probe-Book/source
 GLFW_LIBNAME=glfw make -f Makefile.linux
 ```
 
-# STM32CubeMX
+## STM32CubeMX
 
-- Download and install [Oracle java 1.8.0, arm32 hard float](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+Download and install [Oracle java 1.8.0, arm32 hard float](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
 ```
  cd /opt; tar xvf jdk-8u251-linux-arm32-vfp-hflt.tar.gz
 ```
-- Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
+Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
 ```
 unzip en.stm32cubemx_v5-6-1.zip
 ```
- - Start installer
+Start installer
 ```
 /opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-5.6.1.exe
 ```
-- Execute STM32CubeMX from install directory
+Execute STM32CubeMX from install directory
 ```
 /opt/jdk1.8.0_251/bin/java -jar ./STM32CubeMX
 ```
-- Uninstaller:
+Uninstaller:
 ```
 /opt/jdk1.8.0_251/bin/java -jar STM32CubeMX/Uninstaller/uninstaller.jar
 ```

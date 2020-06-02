@@ -60,9 +60,9 @@ unzip en.stm32cubemx_v5-6-1.zip
 ```
 /opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-5.6.1.exe
 ```
-- Execute STM32CubeMX
+- Execute STM32CubeMX from install directory
 ```
-/opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-5.6.1.exe
+/opt/jdk1.8.0_251/bin/java -jar ./STM32CubeMX
 ```
 - Uninstaller:
 ```

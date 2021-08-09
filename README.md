@@ -52,18 +52,34 @@ Download and install [Oracle java 1.8.0, arm32 hard float](https://www.oracle.co
 ```
  cd /opt; tar xvf jdk-8u251-linux-arm32-vfp-hflt.tar.gz
 ```
-Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)
+Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) for linux:
 ```
-unzip en.stm32cubemx_v5-6-1.zip
+unzip en.stm32cubemx-lin_v6-3-0.zip
 ```
 Start installer
 ```
-/opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-5.6.1.exe
+/opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-6.3.0
 ```
 Execute STM32CubeMX from install directory
 ```
 /opt/jdk1.8.0_251/bin/java -jar ./STM32CubeMX
 ```
+The STM32CubeMX starts up, but stops at The linux STM32CubeMX installs its own JRE runtime environment. Unfortunately, the JRE is for x86, not arm. Replace x86 binary with an arm binary, and make sure the arm binary will not be overwritten.
+```
+$ cd ~/.stm32cubemx/plugins/updater/loadedSoftware/jre/bin
+$ file java
+java: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.18, not stripped
+$ rm java
+$ sudo cp /etc/alternatives/java .
+$ rm unpack200
+$ sudo cp /usr/bin/unpack200 .
+```
+At this point, STM32CubeMX should work:
+```
+java -jar ./STM32CubeMX
+```
+
+
 Uninstaller:
 ```
 /opt/jdk1.8.0_251/bin/java -jar STM32CubeMX/Uninstaller/uninstaller.jar

@@ -78,7 +78,7 @@ At this point, STM32CubeMX should work:
 ```
 java -jar ./STM32CubeMX
 ```
-
+![screenshot](cubemx.png)
 
 Uninstaller:
 ```

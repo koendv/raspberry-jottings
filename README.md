@@ -48,9 +48,13 @@ GLFW_LIBNAME=glfw make -f Makefile.linux
 
 ## STM32CubeMX
 
-Download and install [Oracle java 1.8.0, arm32 hard float](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+Make sure java is installed
 ```
- cd /opt; tar xvf jdk-8u251-linux-arm32-vfp-hflt.tar.gz
+ $ java -version 
+openjdk version "11.0.12" 2021-07-20
+OpenJDK Runtime Environment (build 11.0.12+7-post-Debian-2deb10u1)
+OpenJDK 64-Bit Server VM (build 11.0.12+7-post-Debian-2deb10u1, mixed mode)
+
 ```
 Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) for linux:
 ```
@@ -64,7 +68,7 @@ Execute STM32CubeMX from install directory
 ```
 /opt/jdk1.8.0_251/bin/java -jar ./STM32CubeMX
 ```
-The STM32CubeMX starts up, but stops at The linux STM32CubeMX installs its own JRE runtime environment. Unfortunately, the JRE is for x86, not arm. Replace x86 binary with an arm binary, and make sure the arm binary will not be overwritten.
+STM32CubeMX for Linux installs its own JRE runtime environment. Unfortunately, the JRE is for x86, not arm. Replace x86 binary with an arm binary, and make sure the arm binary will not be overwritten.
 ```
 $ cd ~/.stm32cubemx/plugins/updater/loadedSoftware/jre/bin
 $ file java

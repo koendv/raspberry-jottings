@@ -88,3 +88,16 @@ Uninstaller:
 ```
 /opt/jdk1.8.0_251/bin/java -jar STM32CubeMX/Uninstaller/uninstaller.jar
 ```
+
+## tvheadend
+
+```
+sudo apt-get install build-essential git pkg-config libssl-dev bzip2 wget
+sudo apt-get install libavahi-client-dev zlib1g-dev libavcodec-dev libavutil-dev libavformat-dev libswscale-dev libavresample-dev libdvbcsa-dev liburiparser-dev libhdhomerun-dev libavfilter-dev libx264-dev libx265-dev libvpx-dev libopus-dev
+git clone https://github.com/tvheadend/tvheadend
+cd tvheadend
+# sh ./Autobuild.sh
+./configure --disable-ffmpeg_static --disable-libfdkaac_static --disable-libtheora_static --disable-libopus_static --disable-libvorbis_static --disable-libvpx_static --disable-libx264_static --disable-libx265_static --disable-libfdkaac --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --disable-avahi --disable-dbus_1 --disable-bintray_cache --disable-hdhomerun_static --enable-hdhomerun_client --enable-libav --enable-pngquant --enable-trace --infodir=/usr/share/info --localstatedir=/var --mandir=/usr/share/man --prefix=/usr --sysconfdir=/srv/config
+make
+make install
+```

@@ -103,12 +103,26 @@ make install
 ```
 
 ## micro-manager
-``` 
+
 http://micro-manager.org
 raspberry pi os (64 bit):
 
+needs "swig" to be version 3.
+
+```
+sudo apt install libpcre3-dev
+curl -LO https://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz
+tar xzf swig-3.0.12.tar.gz
+cd swig-3.0.12
+./configure
+make -j3
+sudo make install
+export PATH=/usr/local/bin:$PATH
 sudo apt-get install autoconf automake libtool pkg-config swig ant libboost-dev libboost-all-dev 
 sudo apt-get install imagej libfreeimageplus-dev libhidapi-dev libmodbus-dev libgphoto2-dev libusb-dev libopencv-dev
+
+
+svn co https://valelab4.ucsf.edu/svn/3rdpartypublic/
 git clone --recursive https://github.com/micro-manager/micro-manager
 cd micro-manager/
 ./autogen.sh

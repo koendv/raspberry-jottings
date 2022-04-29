@@ -101,3 +101,21 @@ cd tvheadend
 make
 make install
 ```
+
+## micro-manager
+``` 
+http://micro-manager.org
+raspberry pi os (64 bit):
+
+sudo apt-get install autoconf automake libtool pkg-config swig ant libboost-dev libboost-all-dev 
+sudo apt-get install imagej libfreeimageplus-dev libhidapi-dev libmodbus-dev libgphoto2-dev libusb-dev libopencv-dev
+git clone --recursive https://github.com/micro-manager/micro-manager
+cd micro-manager/
+./autogen.sh
+./configure --prefix=/opt/micro-manager --with-ij-jar=/usr/share/java/ij.jar --with-python=/usr/include/python3.9 --with-boost-libdir=/usr/lib/aarch64-linux-gnu/ --with-boost=/usr/include/boost
+make fetchdeps
+make
+sudo make install
+```
+
+not truncated

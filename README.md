@@ -33,7 +33,7 @@ git clone https://github.com/orbcode/orbuculum
 cd orbuculum
 apt-get install libelf-dev libiberty-dev  binutils-dev
 make 
-```	
+```
 
 ## bmtrace
 
@@ -131,5 +131,17 @@ make fetchdeps
 make
 sudo make install
 ```
+
+When working on a high-dpi display, either 
+
+```
+GDK_SCALE=2 micro-manager
+```
+or, in /opt/micromanager/bin/micromanager , add
+
+```
+-Dsun.java2d.uiScale=2
+```
+as option to  org.micromanager.internal.MMStudio
 
 not truncated

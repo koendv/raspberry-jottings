@@ -135,9 +135,9 @@ sudo make install
 When working on a high-dpi display, either 
 
 ```
-GDK_SCALE=2 micro-manager
+GDK_SCALE=2 micromanager
 ```
-or, in /opt/micromanager/bin/micromanager , add
+or, in /opt/micro-manager/bin/micromanager , add
 
 ```
 -Dsun.java2d.uiScale=2

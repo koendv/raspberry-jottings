@@ -48,47 +48,38 @@ GLFW_LIBNAME=glfw make -f Makefile.linux
 
 ## STM32CubeMX
 
-Make sure java is installed
+Check java is installed:
 ```
- $ java -version 
-openjdk version "11.0.12" 2021-07-20
-OpenJDK Runtime Environment (build 11.0.12+7-post-Debian-2deb10u1)
-OpenJDK 64-Bit Server VM (build 11.0.12+7-post-Debian-2deb10u1, mixed mode)
-
+pi@raspberrypi:~ $ java --version
+openjdk 11.0.15 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-post-Debian-1deb11u1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-post-Debian-1deb11u1, mixed mode)
 ```
-Download and unzip [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html) for linux:
+Download stm32cubemx for linux:
 ```
-unzip en.stm32cubemx-lin_v6-3-0.zip
+pi@raspberrypi:~ $ ls -l en.stm32cubemx-lin_v6-5-0.zip 
+-rw-r--r-- 1 root root 414664915 May 16 17:35 en.stm32cubemx-lin_v6-5-0.zip
 ```
-Start installer
+Unzip and install:
 ```
-/opt/jdk1.8.0_251/bin/java -jar ./SetupSTM32CubeMX-6.3.0
+pi@raspberrypi:~ $ mkdir xxx
+pi@raspberrypi:~ $ cd xxx/
+pi@raspberrypi:~/xxx $ unzip -q ../en.stm32cubemx-lin_v6-5-0.zip 
+pi@raspberrypi:~/xxx $ ls
+jre  Readme.html  SetupSTM32CubeMX-6.5.0
+pi@raspberrypi:~/xxx $ java -jar ./SetupSTM32CubeMX-6.5.0
 ```
-Execute STM32CubeMX from install directory
+Run STM32CubeMX from the installation directory:
 ```
-/opt/jdk1.8.0_251/bin/java -jar ./STM32CubeMX
-```
-STM32CubeMX for Linux installs its own JRE runtime environment. Unfortunately, the JRE is for x86, not arm. Replace x86 binary with an arm binary, and make sure the arm binary will not be overwritten.
-```
-$ cd ~/.stm32cubemx/plugins/updater/loadedSoftware/jre/bin
-$ file java
-java: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.18, not stripped
-$ rm java
-$ sudo cp /etc/alternatives/java .
-$ rm unpack200
-$ sudo cp /usr/bin/unpack200 .
-```
-At this point, STM32CubeMX should work:
-```
-java -jar ./STM32CubeMX
-```
-![screenshot](cubemx.png)
-
-Uninstaller:
-```
-/opt/jdk1.8.0_251/bin/java -jar STM32CubeMX/Uninstaller/uninstaller.jar
+pi@raspberrypi:~/xxx $ cd ~/STM32CubeMX/
+pi@raspberrypi:~/STM32CubeMX $ ls 
+db    jre    plugins      third_parties_plugins  utilities
+help  olddb  STM32CubeMX  Uninstaller
+pi@raspberrypi:~/STM32CubeMX $ java -jar ./STM32CubeMX
 ```
 
+![](cubemx.jpg)
+ 
 ## tvheadend
 
 ```
